@@ -9,6 +9,10 @@ struct Promise<T> {
         }
     }
     
+    func then (_ closure: @escaping (T) -> Void) {
+        self.resolver({ result in closure(result)}, { _ in })
+    }
+    
     func fail (_ closure: @escaping (Error) -> Void) {
         self.resolver({ _ in }, { error in closure(error)})
     }
