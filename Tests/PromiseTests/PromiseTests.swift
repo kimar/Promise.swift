@@ -3,6 +3,10 @@ import XCTest
 
 class PromiseTests: XCTestCase {
 
+    enum TestError: Error {
+        case AnError
+    }
+    
     func testThen() {
         let ex = expectation(description: "expect then")
         
@@ -21,13 +25,12 @@ class PromiseTests: XCTestCase {
         
         Promise<String> { resolve, reject in
             resolve("OK")
-        }.then { result -> Promise<Bool> in
-            XCTAssertEqual(result, "OK")
-            return Promise { resolve, reject in
+        }.then { result in
+            return Promise<Bool> { resolve, reject in
                 resolve(true)
             }
         }.then { result in
-//            XCTAssertTrue(result)
+            XCTAssertTrue(result)
             ex.fulfill()
         }
         
@@ -35,9 +38,6 @@ class PromiseTests: XCTestCase {
     }
     
     func testFail() {
-        enum TestError: Error {
-            case AnError
-        }
         let ex = expectation(description: "expect fail")
 
         Promise<String> { resolve, reject in
@@ -48,5 +48,21 @@ class PromiseTests: XCTestCase {
         
         waitForExpectations(timeout: 1, handler: nil)
 
+    }
+    
+    func testThenFail() {
+        let ex = expectation(description: "expect fail")
+        
+        Promise<String> { resolve, reject in
+            resolve("OK")
+        }.then { result in
+            return Promise<Bool> { resolve, reject in
+                reject(TestError.AnError)
+            }
+        }.fail { error in
+            ex.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
     }
 }
