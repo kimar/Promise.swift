@@ -60,6 +60,12 @@ class PromiseTests: XCTestCase {
                 reject(TestError.AnError)
             }
         }.fail { error in
+            switch error {
+            case TestError.AnError:
+                XCTAssertTrue(true)
+            default:
+                XCTAssertTrue(false)
+            }
             ex.fulfill()
         }
         
