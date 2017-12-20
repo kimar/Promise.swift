@@ -10,11 +10,11 @@ public class Promise<T> {
         self.resolver = resolver
     }
     
-    func then (_ closure: @escaping (T) -> Void) {
+    func then(_ closure: @escaping (T) -> Void) {
         resolver({ value in closure(value) }, { _ in })
     }
     
-    func then<U> (_ closure: @escaping (T) -> Promise<U>) -> Promise<U> {
+    func then<U>(_ closure: @escaping (T) -> Promise<U>) -> Promise<U> {
         var promise: Promise<U>?
         resolver({ value in promise = closure(value) }, { _ in })
         return Promise<U> { resolve, reject in
@@ -27,7 +27,7 @@ public class Promise<T> {
         }
     }
     
-    func fail (_ closure: @escaping (Error) -> Void) {
+    func fail(_ closure: @escaping (Error) -> Void) {
         resolver({ _ in }, { error in closure(error) })
     }
 }

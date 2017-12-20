@@ -25,7 +25,8 @@ class PromiseTests: XCTestCase {
         
         Promise<String> { resolve, reject in
             resolve("OK")
-        }.then { result in
+        }.then { result -> Promise<Bool> in
+            XCTAssertEqual(result, "OK")
             return Promise<Bool> { resolve, reject in
                 resolve(true)
             }
@@ -55,7 +56,8 @@ class PromiseTests: XCTestCase {
         
         Promise<String> { resolve, reject in
             resolve("OK")
-        }.then { result in
+        }.then { result -> Promise<Bool> in
+            XCTAssertEqual(result, "OK")
             return Promise<Bool> { resolve, reject in
                 reject(TestError.AnError)
             }
