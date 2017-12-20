@@ -38,6 +38,29 @@ class PromiseTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
     
+    func testThenThenPromise() {
+        let ex = expectation(description: "expect then promise")
+        
+        Promise<String> { resolve, reject in
+            resolve("OK")
+        }.then { result -> Promise<Bool> in
+            XCTAssertEqual(result, "OK")
+            return Promise<Bool> { resolve, reject in
+                resolve(true)
+            }
+        }.then { result -> Promise<Int> in
+            XCTAssertTrue(result)
+            return Promise<Int> { resolve, reject in
+                resolve(42)
+            }
+        }.then { result in
+            XCTAssertEqual(result, 42)
+            ex.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
     func testFail() {
         let ex = expectation(description: "expect fail")
 
