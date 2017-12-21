@@ -1,8 +1,12 @@
+# Promise.swift
+
 [![Twitter: @Kidmar](https://img.shields.io/badge/contact-@Kidmar-blue.svg?style=flat)](https://twitter.com/Kidmar)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/LocativeHQ/Locative-iOS/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/kimar/Promise.swift.svg?branch=master)](https://travis-ci.org/kimar/Promise.swift)
-
-# Promise.swift
+![Xcode 8.2+](https://img.shields.io/badge/Xcode-8.2%2B-blue.svg)
+![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
+![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
 ## tl;dr
 A very simple Swift 3.0 Promise library I've written while on the plane using my iPad and Playgrounds.
