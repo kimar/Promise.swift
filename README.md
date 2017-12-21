@@ -1,3 +1,5 @@
+[![Twitter: @Kidmar](https://img.shields.io/badge/contact-@Kidmar-blue.svg?style=flat)](https://twitter.com/Kidmar)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/LocativeHQ/Locative-iOS/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/kimar/Promise.swift.svg?branch=master)](https://travis-ci.org/kimar/Promise.swift)
 
 # Promise.swift
