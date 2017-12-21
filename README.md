@@ -19,7 +19,7 @@ Rather simple and more for reference than actually to be used is this very simpl
 
 **Succeeding**
 
-```
+```swift
 Promise<String> { resolve, reject in 
 	resolve("Bazingaaaa!")
 }.then { result in 
@@ -29,7 +29,7 @@ Promise<String> { resolve, reject in
 
 **Failing** 
 
-```
+```swift
 Promise<String> { resolve, reject in 
 	reject(Error.AnError)
 }.fail { error in 
@@ -39,7 +39,7 @@ Promise<String> { resolve, reject in
 
 **Chaining**
 
-```
+```swift
 Promise<String> { resolve, reject in 
 	resolve(1)
 }.then { result -> Promise<Int> in 
