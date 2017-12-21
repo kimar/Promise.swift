@@ -29,6 +29,24 @@ Promise<String> { resolve, reject in
 }
 ```
 
+**Chaining**
+
+```
+Promise<String> { resolve, reject in 
+	resolve(1)
+}.then { result -> Promise<Int> in 
+	return Promise<Int> { resolve, reject in 
+		resolve(result + 1)
+	}
+}.then { result -> Promise<Int> in 
+	return Promise<Int> { resolve, reject in 
+		resolve(result + 1)
+	}
+}.then { result in 
+	print(result) // 3
+}
+```
+
 ## License
 
 See [LICENSE.md](LICENSE.md)
