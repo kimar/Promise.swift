@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kimar/Promise.swift.svg?branch=master)](https://travis-ci.org/kimar/Promise.swift)
+
 # Promise.swift
 
 ## tl;dr
