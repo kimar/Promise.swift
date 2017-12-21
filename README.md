@@ -23,7 +23,7 @@ Rather simple and more for reference than actually to be used is this very simpl
 Promise<String> { resolve, reject in 
 	resolve("Bazingaaaa!")
 }.then { result in 
-	print(result)
+	print(result) // Bazingaaaa!
 }
 ```
 
