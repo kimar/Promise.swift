@@ -55,6 +55,10 @@ Promise<String> { resolve, reject in
 }
 ```
 
+## Contributing
+
+Please take a moment to read and understand the [Berlin Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## License
 
 See [LICENSE.md](LICENSE.md)
